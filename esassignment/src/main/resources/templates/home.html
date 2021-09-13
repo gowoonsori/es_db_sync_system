@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="fragment-header">
+    <div th:replace="/fragments/header.html :: fragment-header"></div>
+</head>
+<body>
+<div th:replace="/fragments/nav.html :: fragment-nav"></div>
+<div th:replace="/fragments/sidebar.html :: fragment-sidebar"></div>
+<main>
+    <div>Home</div>
+    <div>
+        <button>서비스 생성</button>
+    </div>
+</main>
+<footer th:replace="/fragments/footer.html :: fragment-footer"></footer>
+</body>
+</html>

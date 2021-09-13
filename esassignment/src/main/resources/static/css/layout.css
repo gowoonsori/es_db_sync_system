@@ -1,0 +1,124 @@
+:root {
+    --background: #ffffff;
+    --text: #363636;
+    --heading-text: #000;
+    --anchor-text: #0076d1;
+    --code-background: #efefef;
+    --code-text: #000;
+    --border-color: #f0f0f0;
+    --box-shadow: #e4e5e5;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --background: #202b38;
+        --text: #dbdbdb;
+        --heading-text: #fff;
+        --anchor-text: #0076d1;
+        --code-background: #161f27;
+        --code-text: #ffbe85;
+    }
+}
+html {
+    height: 100%;
+}
+body {
+    background: var(--background);
+    line-height: 1.6;
+    margin: 0 auto;
+    height: 100%;
+}
+
+h1,
+h2,
+h3 {
+    color: var(--heading-text);
+}
+
+p,
+dl {
+    color: var(--text);
+}
+
+a {
+    color: var(--anchor-text);
+    text-decoration: none;
+}
+
+code {
+    color: var(--code-text);
+    background: var(--code-background);
+    border-radius: 6px;
+    padding: 2.5px 5px;
+}
+main {
+    width: 85%;
+    margin-left : 180px;
+    padding: 30px;
+    height: 100%;
+    min-width: 400px;
+}
+
+aside{
+    width:130px;
+    min-width: 130px;
+    position: fixed;
+    height: 100%;
+    overflow: auto;
+    padding: 10px;
+    border-right: 1px solid var(--border-color);
+    background: var(--background);
+    z-index: 999;
+}
+
+aside ul {
+    list-style-type: none;
+    padding-left:0px;
+}
+
+aside ul li {
+    margin : 10px;
+}
+
+
+aside ul li a {
+    text-decoration: none;
+    display: block;
+}
+footer{
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100px;
+    padding: 30px 0;
+    text-align: center;
+    background: #1d2124;
+    color: #ebebeb;
+}
+.nav-container{
+    height: 100px;
+}
+.sticky {
+    display: flex;
+    border-bottom: 1px solid var(--border-color);
+    position: fixed;
+    justify-content: space-between;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    z-index: 999;
+    min-width: 300px;
+    background: var(--background);
+    padding : 15px;
+    box-shadow: 2px 2px var(--box-shadow);
+}
+
+.switch-container{
+    margin : auto 0;
+    display: flex;
+    padding: 10px;
+}
+.span-container{
+    margin : auto 10px;
+    text-align: center;
+}

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="fragment-header">
+  <div th:replace="/fragments/header.html :: fragment-header"></div>
+</head>
+<body>
+<div th:replace="/fragments/nav.html :: fragment-nav"></div>
+<div th:replace="/fragments/sidebar.html :: fragment-sidebar"></div>
+
+<!-- main -->
+<main>
+  <table class="table table-striped" th:if="${serviceList != null}">
+    <thead th:with="page=${serviceList.getPageable().getPageNumber()}">
+    <tr>
+      <th>id</th>
+      <th>서비스 쿼리</th>
+      <th class="center-align-column">index 이름</th>
+      <th class="center-align-column">index 생성</th>
+      <th class="center-align-column">삭제</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="service, stat : ${serviceList}" th:id="${service.id}">
+      <td><span th:text="${service.uuid}"></span></td>
+      <td><span th:text="${service.sqlString}"></span></td>
+      <td class="center-align-column" ><span th:text="${service.indexName == null ? 'X' : service.indexName}  "></span></td>
+      <td class="center-align-column"><button class="bulk-button" th:id="button_ + ${service.uuid}" th:onclick="onBulkEvent([[${service.uuid}]])" >
+        <span th:id="span_ + ${service.uuid}">bulk</span>
+        <progress th:id="circular_ + ${service.uuid}" class="progress-circular"></progress>
+      </button></td>
+      <td class="center-align-column">
+        <button th:onclick="onDeleteServiceEvent([[${service.uuid}]])">삭제</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+  <div th:replace="/fragments/pagination.html :: fragment-pagination(list=${serviceList},link='service')"></div>
+
+
+</main>
+<footer th:replace="/fragments/footer.html :: fragment-footer"></footer>
+</body>
+</html>
+<body>
+
+</body>
+</html>

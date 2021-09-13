@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="fragment-header">
+    <div th:replace="/fragments/header.html :: fragment-header"></div>
+</head>
+<body>
+<div th:replace="/fragments/nav.html :: fragment-nav"></div>
+<div th:replace="/fragments/sidebar.html :: fragment-sidebar"></div>
+
+<!-- main -->
+<main>
+    <table class="table table-striped" th:if="${indexList != null}" th:with="page=${indexList.getPageable().getPageNumber()}" >
+        <thead >
+        <tr>
+            <th>index</th>
+            <th>count</th>
+            <th>primary</th>
+            <th>replica</th>
+            <th>deleted</th>
+            <th>size</th>
+            <th>primary size</th>
+            <th class="center-align-column">status</th>
+            <th class="center-align-column">health</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="index : ${indexList}" th:id="${index.getUuid()}">
+            <td><span th:text="${index.getIndex()}"></span></td>
+            <td><span th:text="${index.getCount()}"></span></td>
+            <td><span th:text="${index.getPrimary()}"></span></td>
+            <td><span th:text="${index.getReplica()}"></span></td>
+            <td><span th:text="${index.getDeleted()}"></span></td>
+            <td><span th:text="${index.getSize()}"></span></td>
+            <td><span th:text="${index.getPrimarySize()}"></span></td>
+            <td class="center-align-column"><span th:text="${index.getStatus()}"></span></td>
+            <td class="center-align-column"><span th:class="${index.getHealth()}" th:text="${index.getHealth()}"></span></td>
+        </tr>
+        </tbody>
+    </table>
+    <div th:replace="/fragments/pagination.html :: fragment-pagination(list=${indexList},link='dictionary')"></div>
+
+
+</main>
+<footer th:replace="/fragments/footer.html :: fragment-footer"></footer>
+</body>
+</html>

@@ -1,0 +1,90 @@
+plugins {
+    id 'org.springframework.boot' version '2.5.4'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id 'java'
+    id 'jacoco'
+}
+
+group = 'kr.co.saraminhr'
+version = '0.0.1'
+sourceCompatibility = '11'
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    //web
+    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+
+    //configuration
+    compileOnly 'org.springframework.boot:spring-boot-configuration-processor'
+    annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
+
+    //dev-tool
+    implementation 'com.google.code.gson:gson:2.8.8'
+    compileOnly 'org.springframework.boot:spring-boot-devtools'
+    implementation 'org.apache.commons:commons-lang3:3.12.0'
+
+    //validation
+    implementation 'org.springframework.boot:spring-boot-starter-validation'
+
+    //Es
+    implementation 'org.elasticsearch.client:elasticsearch-rest-high-level-client:7.13.0'
+
+    //lombok
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+
+    //DB
+    runtimeOnly 'mysql:mysql-connector-java'
+    implementation 'org.springframework.data:spring-data-commons'
+    //implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.2.0'
+    implementation 'org.springframework.boot:spring-boot-starter-jdbc'
+    implementation 'org.apache.commons:commons-dbcp2:2.9.0'
+
+    //test
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+
+test {
+    jacoco{
+        destinationFile = file("$buildDir/jacoco/jacoco.exec")
+    }
+    useJUnitPlatform()
+
+    finalizedBy 'jacocoTestReport'
+}
+
+jacoco{
+    toolVersion = '0.8.7'
+}
+
+jacocoTestReport {
+    reports {
+        html.enabled true
+        xml.enabled false
+        csv.enabled false
+    }
+    finalizedBy 'jacocoTestCoverageVerification'
+}
+
+jacocoTestCoverageVerification {
+    violationRules {
+        rule {
+            limit {
+                minimum = 0.1
+            }
+            excludes = [
+                    "EsAssingmentApplication",
+            ]
+        }
+    }
+}

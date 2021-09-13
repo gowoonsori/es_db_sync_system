@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<div th:fragment="fragment-pagination(list,link)" class="pagination-container" th:if="${list != null}">
+    <nav th:class="${link}">
+        <ul class="pagination"
+            th:with="start=${T(Math).floor(list.number/10) * 10 +1}, last=(${start + 9 < list.totalPages ? start + 9 : list.totalPages})">
+            <li th:class="${list.first} ? 'disabled'">
+                <a th:href=|/${link}?page=0| aria-label="first">
+                    <span aria-hidden="true">first</span>
+                </a>
+            </li>
+            <li th:class="${list.first} ? 'disabled'">
+                <a th:href="${list.first} ? '' : |/${link}?page=${list.number-1}|" aria-label="previous">
+                    <span aria-hidden="true">&lt;</span>
+                </a>
+            </li>
+            <li th:each="page: ${#numbers.sequence(start,last)}"
+                th:class="${page == list.number + 1} ? 'active'">
+                <a th:text="${page}" th:href=|/${link}?page=${page-1}|  ></a>
+            </li>
+            <li th:class="${list.last} ? 'disabled'">
+                <a th:href="${list.last} ? '' : |/${link}?page=${list.number + 1}|" aria-label="next">
+                    <span aria-hidden="true">&gt;</span>
+                </a>
+            </li>
+            <li th:class="${list.last} ? 'disabled'">
+                <a th:href=|/${link}?page=${list.totalPages-1}| aria-label="last">
+                    <span aria-hidden="true">last</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</div>
+</html>

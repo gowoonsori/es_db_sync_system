@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="fragment-header">
+  <div th:replace="/fragments/header.html :: fragment-header"></div>
+</head>
+<body>
+<div th:replace="/fragments/nav.html :: fragment-nav"></div>
+<div th:replace="/fragments/sidebar.html :: fragment-sidebar"></div>
+
+<!-- main -->
+<main>
+  <div class="search-container">
+    <div class="search-form-container">
+      <h2>문서 검색</h2>
+      <div class="search-form-input-container">
+
+        <div class="input-group">
+          <span class="input-group-addon" id="service-id-span">서비스 아이디*</span>
+          <input type="text" name="uuid" id="service-id" class="form-control"
+                 placeholder="service id (1 ~ 30 자)"
+                 aria-describedby="service-id">
+        </div>
+        <div class="input-group">
+          <span class="input-group-addon" id="search-content-span">검색 내용</span>
+          <input type="text" name="searchContent" id="search-content" class="form-control"
+                 placeholder="검색 키워드 (255자 내)" aria-describedby="search-content">
+        </div>
+        <div class="input-group">
+          <span class="input-group-addon" id="search-field-span">검색 필드</span>
+          <input type="text" name="searchField" id="search-field" class="form-control"
+                 placeholder="검색 필드들 (ex. content,name,id)" aria-describedby="search-field">
+        </div>
+        <div class="input-group">
+          <span class="input-group-addon" id="highlight-field-span">하이라이트 필드</span>
+          <input type="text" name="highlightField" id="highlight-field" class="form-control"
+                 placeholder="하이라이트 필드 (ex. content,name)" aria-describedby="highlight-field">
+        </div>
+        <div class="input-group">
+          <span class="input-group-addon" id="page-size-span">페이지 사이즈</span>
+          <input type="text" name="pageSize" id="page-size" class="form-control" placeholder="페이지 사이즈"
+                 aria-describedby="page-size">
+        </div>
+        <div class="input-group">
+          <span class="input-group-addon" id="page-no-span">페이지 번호</span>
+          <input type="text" name="pageNo" id="page-no" class="form-control" placeholder="페이지 번호"
+                 aria-describedby="page-no">
+        </div>
+      </div>
+      <div>
+        <button class="search-button" onclick="onSearchEvent()">검색</button>
+      </div>
+    </div>
+    <div class="result-container">
+      <h2>검색 결과</h2>
+      <table class="table table-striped" id="result-table">
+        <thead id="result-table-head"></thead>
+        <tbody id="result-table-body"></tbody>
+      </table>
+    </div>
+  </div>
+</main>
+</body>
+</html>

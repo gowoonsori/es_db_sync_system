@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="fragment-header">
+  <div th:replace="/fragments/header.html :: fragment-header"></div>
+</head>
+<body>
+<div th:replace="/fragments/nav.html :: fragment-nav"></div>
+<div th:replace="/fragments/sidebar.html :: fragment-sidebar"></div>
+<main>
+  <table class="table table-striped" th:if="${tableList != null}" th:with="page=${tableList.getPageable().getPageNumber()}">
+    <thead>
+    <tr>
+      <th>id</th>
+      <th>테이블 명</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="table, stat : ${tableList}">
+      <td><span th:text="${page*10 + stat.index + 1}"></span></td>
+      <td><span th:text="${table}"></span></td>
+    </tr>
+    </tbody>
+  </table>
+  <div th:replace="/fragments/pagination.html :: fragment-pagination(list=${tableList},link='table')"></div>
+
+</main>
+<footer th:replace="/fragments/footer.html :: fragment-footer"></footer>
+</body>
+</html>

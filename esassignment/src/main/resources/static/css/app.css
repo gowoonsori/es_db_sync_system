@@ -1,0 +1,280 @@
+.pagination-container {
+    text-align: center;
+}
+.search-container{
+    display: flex;
+}
+.search-form-container{
+    width: 400px;
+    margin-right: 30px;
+    padding-right: 30px;
+    border-right: 1px dashed #b9b9b9;
+}
+.result-container{
+    text-align: center;
+    width: 100%;
+    padding-right: 30px ;
+}
+.form-container {
+    text-align: center;
+    margin: 0 auto;
+    width: 500px;
+}
+.form-container h2{
+    margin-bottom: 80px;
+}
+.input-group {
+    margin : 40px 0 0;
+    text-align: center;
+}
+.input-group .form-control{
+    width: 350px;
+    padding: 30px 5px;
+}
+.input-group-addon{
+    width: 150px;
+    padding: 20px;
+    font-weight: 700;
+}
+.search-form-input-container .input-group .form-control{
+    width: 220px;
+    padding: 30px 5px;
+}
+
+.create-button {
+    width: 30%;
+    padding: 5px;
+    font-weight: 700;
+    border-radius: 20px;
+    margin-top: 40px;
+}
+
+.search-button {
+    width: 98%;
+    padding: 5px;
+    font-weight: 700;
+    border-radius: 20px;
+    margin-top: 40px;
+}
+
+.validate {
+    color: red;
+}
+.bulk-button{
+    width: 100%;
+}
+.center-align-column{
+    text-align: center;
+}
+.yellow{
+    padding: 6px;
+    background: #fffb08;
+    border-radius: 12px;
+}
+.green{
+    padding: 6px;
+    background: #19e300;
+    border-radius: 12px;
+}
+
+.input-box {
+    width: 700px;
+    height: 75px;
+    font-size : 1.65em;
+    padding: 5px 5px 5px 20px;
+}
+.search-button{
+    font-size : 1.5em;
+    height: 75px;
+}
+.search-button:hover{
+    cursor : pointer;
+}
+
+
+/* progress - circular */
+.progress-circular {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    display: none;
+    box-sizing: border-box;
+    border: none;
+    border-radius: 50%;
+    padding: 0.25em;
+    width: 2em;
+    height: 2em;
+    color: rgb(var(--pure-material-primary-rgb, 33, 150, 243));
+    background-color: transparent;
+    font-size: 16px;
+    overflow: hidden;
+}
+
+.progress-circular::-webkit-progress-bar {
+    background-color: transparent;
+}
+
+/* Indeterminate */
+.progress-circular:indeterminate {
+    -webkit-mask-image: linear-gradient(transparent 50%, black 50%), linear-gradient(to right, transparent 50%, black 50%);
+    mask-image: linear-gradient(transparent 50%, black 50%), linear-gradient(to right, transparent 50%, black 50%);
+    animation: progress-circular 6s infinite cubic-bezier(0.3, 0.6, 1, 1);
+}
+
+:-ms-lang(x), .progress-circular:indeterminate {
+    animation: none;
+}
+
+.progress-circular:indeterminate::before,
+.progress-circular:indeterminate::-webkit-progress-value {
+    content: "";
+    display: block;
+    box-sizing: border-box;
+    margin-bottom: 0.25em;
+    border: solid 0.25em transparent;
+    border-top-color: currentColor;
+    border-radius: 50%;
+    width: 100% !important;
+    height: 100%;
+    background-color: transparent;
+    animation: progress-circular-pseudo 0.75s infinite linear alternate;
+}
+
+.progress-circular:indeterminate::-moz-progress-bar {
+    box-sizing: border-box;
+    border: solid 0.25em transparent;
+    border-top-color: currentColor;
+    border-radius: 50%;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    animation: progress-circular-pseudo 0.75s infinite linear alternate;
+}
+
+.progress-circular:indeterminate::-ms-fill {
+    animation-name: -ms-ring;
+}
+
+@keyframes progress-circular {
+    0% {
+        transform: rotate(0deg);
+    }
+    12.5% {
+        transform: rotate(180deg);
+        animation-timing-function: linear;
+    }
+    25% {
+        transform: rotate(630deg);
+    }
+    37.5% {
+        transform: rotate(810deg);
+        animation-timing-function: linear;
+    }
+    50% {
+        transform: rotate(1260deg);
+    }
+    62.5% {
+        transform: rotate(1440deg);
+        animation-timing-function: linear;
+    }
+    75% {
+        transform: rotate(1890deg);
+    }
+    87.5% {
+        transform: rotate(2070deg);
+        animation-timing-function: linear;
+    }
+    100% {
+        transform: rotate(2520deg);
+    }
+}
+
+@keyframes progress-circular-pseudo {
+    0% {
+        transform: rotate(-30deg);
+    }
+    29.4% {
+        border-left-color: transparent;
+    }
+    29.41% {
+        border-left-color: currentColor;
+    }
+    64.7% {
+        border-bottom-color: transparent;
+    }
+    64.71% {
+        border-bottom-color: currentColor;
+    }
+    100% {
+        border-left-color: currentColor;
+        border-bottom-color: currentColor;
+        transform: rotate(225deg);
+    }
+}
+
+/* The switch - the box around the slider */
+.switch {
+    position: relative;
+    width: 60px;
+    height: 34px;
+    margin-bottom: 0;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* The slider */
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+input:checked + .slider {
+    background-color: #2196F3;
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+.dark-toggle-span{
+    min-width: 200px;
+    font-size: 1.4em;
+}

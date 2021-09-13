@@ -1,0 +1,41 @@
+server:
+  port: 8080
+
+#자동 build
+spring:
+  devtools:
+    livereload:
+      enabled: true
+  thymeleaf:
+    cache: false
+    prefix: classpath:/templates/
+  # Pageable
+  data:
+    web:
+      pageable:
+        default-page-size: 10
+
+  # db
+  datasource:
+    hikari:
+      second:
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        url: jdbc:mysql://otherhost:3306/other_db?serverTimezone=Asia/Seoul&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull
+        username: usernmae
+        password: password
+      local:
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        url: jdbc:mysql://localhost:3306/es_assignment?serverTimezone=Asia/Seoul&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull
+        username: username
+        password: password
+    dbcp2:
+      default-query-timeout: 300
+  output:
+    ansi:
+      enabled: always
+
+
+
+# elasticsearch
+elasticsearch:
+  hosts: http://localhost:9200

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="fragment-header">
+    <div th:replace="/fragments/header.html :: fragment-header"></div>
+</head>
+<body>
+<div th:replace="/fragments/nav.html :: fragment-nav"></div>
+<div th:replace="/fragments/sidebar.html :: fragment-sidebar"></div>
+
+<!-- main -->
+<main>
+    <div class="form-container">
+        <h2>서비스 생성</h2>
+        <div class="input-group">
+            <span class="input-group-addon" id="service-id-span">서비스 아이디</span>
+            <input type="text" name="uuid" id="service-id" class="form-control" placeholder="service id (1 ~ 30 자)" aria-describedby="service-id">
+        </div>
+        <span class="validate" th:id="valid_uuid"></span>
+        <div class="input-group">
+            <span class="input-group-addon" id="service-content-span">서비스 내용</span>
+            <input type="text" name="sqlString" id="service-content" class="form-control" placeholder="테이블 한개만 select 가능하며 pk가 포함되어야 합니다. (ex. select * from members)" aria-describedby="service-content">
+        </div>
+        <span class="validate" th:id="valid_sqlString"></span>
+        <div>
+            <button class="create-button" onclick="onCreateServiceEvent()">생성</button>
+        </div>
+    </div>
+
+</main>
+<footer th:replace="/fragments/footer.html :: fragment-footer"></footer>
+</body>
+</html>
