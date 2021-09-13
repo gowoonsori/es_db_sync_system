@@ -54,7 +54,7 @@ public class WorkerControllerTest extends BaseTest {
 
         //when
         var response = this.mockMvc.perform(
-                post("/service/create")
+                post("/service")
                         .contentType("application/json;charset=UTF-8")
                         .content(worker.toString()));
 
@@ -72,7 +72,7 @@ public class WorkerControllerTest extends BaseTest {
 
         //when
         var response = this.mockMvc.perform(
-                post("/service/create")
+                post("/service")
                         .contentType("application/json;charset=UTF-8")
                         .content(worker.toString()));
 
@@ -90,7 +90,7 @@ public class WorkerControllerTest extends BaseTest {
 
         //when
         var response = this.mockMvc.perform(
-                post("/service/create")
+                post("/service")
                         .contentType("application/json;charset=UTF-8")
                         .content(worker.toString()));
 
@@ -108,7 +108,7 @@ public class WorkerControllerTest extends BaseTest {
 
         //when
         var response = this.mockMvc.perform(
-                post("/service/create")
+                post("/service")
                         .contentType("application/json;charset=UTF-8")
                         .content(worker.toString()));
 
@@ -135,7 +135,7 @@ public class WorkerControllerTest extends BaseTest {
         //when
         WorkerRequestDto request = new WorkerRequestDto(serviceId,sqlString);
         var response = this.mockMvc.perform(
-                post("/service/create")
+                post("/service")
                         .contentType("application/json;charset=UTF-8")
                         .content(request.toString()));
 
@@ -155,7 +155,7 @@ public class WorkerControllerTest extends BaseTest {
         //when
         WorkerRequestDto request = new WorkerRequestDto(serviceId,sqlString);
         var response = this.mockMvc.perform(
-                post("/service/create")
+                post("/service")
                         .contentType("application/json;charset=UTF-8")
                         .content(request.toString()));
 

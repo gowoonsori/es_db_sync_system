@@ -53,7 +53,7 @@ const onCreateServiceEvent = () => {
     document.getElementById("valid_uuid").innerText = "";
     document.getElementById("valid_sqlString").innerText = "";
 
-    fetch('/service/create', {
+    fetch('/service', {
         method: 'post',
         headers: {
             'Content-Type': 'application/json;charset=UTF-8',

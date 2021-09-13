@@ -57,7 +57,7 @@ public class WorkerController {
      * @param errors @Valid 로 유효성검사후 실패시 error처리 위한 변수
      * @return View
      * */
-    @PostMapping("/create")
+    @PostMapping
     public ResponseEntity createService(@Validated({OrderChecks.class}) @RequestBody WorkerRequestDto request, BindingResult errors){
         //유효성 검사 실패
         if(errors.hasErrors()){
