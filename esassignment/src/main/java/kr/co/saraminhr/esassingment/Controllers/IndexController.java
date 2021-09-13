@@ -105,6 +105,7 @@ public class IndexController {
 
         //index 명을 가지고 검색
         SearchResponseDto response = indexService.getDocuments(worker.getIndexName(), request);
+        if(response.getResult().length == 0) return ResponseEntity.noContent().build();
 
         return ResponseEntity.ok(response);
     }

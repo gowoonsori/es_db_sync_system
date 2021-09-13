@@ -86,7 +86,7 @@ public class WorkerService {
         workerDAO.delete(worker);
 
         //index delete
-        if(CustomStringUtil.isNotEmptyAndBlank(worker.getIndexName())){
+        if(CustomStringUtil.isNotEmptyAndBlank(worker.getIndexName()) && indexDAO.exists(worker.getIndexName())){
             indexDAO.delete(worker.getIndexName());
         }
     }

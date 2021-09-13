@@ -174,7 +174,7 @@ public class IndexControllerTest extends BaseTest {
         String indexName = "test_index";
         String serviceId = "test-service";
         String sqlString = "select * from members where mem_idx < 10000 limit 100";
-        String searchText = "s";
+        String searchText = "uco";
         String[] resultColumns = new String[]{"id"};
 
         workerService.insert(Worker.builder()
@@ -197,6 +197,7 @@ public class IndexControllerTest extends BaseTest {
                 .build();
 
         //when
+        indexDAO.refresh(indexName);
         var response = this.mockMvc.perform(post("/index/search/contents")
                         .contentType(MediaType.APPLICATION_JSON)
                         .accept(MediaType.APPLICATION_JSON).content(searchRequestDto.toString()))
@@ -602,8 +603,7 @@ public class IndexControllerTest extends BaseTest {
                                 .searchText(contentsIdValue)
                                 .build().toString()))
                 .andDo(print())
-                .andExpect(status().is(200))
-                .andExpect(jsonPath("result").isEmpty());
+                .andExpect(status().is(204));
         deleteIndex(indexName);
     }
 
