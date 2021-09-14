@@ -7,9 +7,16 @@
 <div th:replace="/fragments/nav.html :: fragment-nav"></div>
 <div th:replace="/fragments/sidebar.html :: fragment-sidebar"></div>
 <main>
-    <div>Home</div>
     <div>
-        <button>서비스 생성</button>
+        <h2 class="home-h2">서비스 생성 규칙</h2>
+        <div>
+            <ol>
+                <li class="home-li">select 만 가능하다.</li>
+                <li class="home-li">한개의 table만 select 가능하다. (서브쿼리, join 등 불가)</li>
+                <li class="home-li">select column에 반드시 pk가 포함되어야 한다.</li>
+                <li class="home-li">order by 절은 불가능 하다.</li>
+            </ol>
+        </div>
     </div>
 </main>
 <footer th:replace="/fragments/footer.html :: fragment-footer"></footer>

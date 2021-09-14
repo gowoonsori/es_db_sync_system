@@ -56,6 +56,15 @@
     border-radius: 20px;
     margin-top: 40px;
 }
+.home-h2 {
+    margin-bottom: 60px;
+    font-size: 3em;
+    font-weight: 800;
+}
+.home-li{
+    margin-bottom: 20px;
+    font-size: 1.3em;
+}
 
 .validate {
     color: red;
